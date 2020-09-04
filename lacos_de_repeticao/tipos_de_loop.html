@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Logica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+  </body>
+
+  <script>
+    //Operadores logicos
+    /*Pedir para o usuário digitar um número e 
+    mostrar a tabuada desse numero de 1 a 1000*/
+
+    //aula 3.1
+    var numero = parseInt(prompt("Digite a primeira nota"));
+
+    //repita até que seja <=1000
+
+    var indice = 1001;
+    do {
+      document.write(numero + "X" + indice + "=" + (numero * indice) + "<br>");
+      indice = indice + 1;
+    } while(indice <= 1000){}
+
+    for(var i = 1; i <= 1000; i++ ) {
+      document.write(numero + "X" + i + "=" + (numero * i) + "<br>");
+      indice = indice + 1;
+    }
+
+
+  </script>
+</html>
