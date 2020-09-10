@@ -19,7 +19,7 @@
       escreve(n2);     
 
       function iniciarCalculo(simbolo) {
-        var n1 = document.querySelector("#output").textContent;
+        var n1 = parseFloat(document.querySelector("#output").textContent);
         var n2 = parseFloat(prompt("digitar outro numero"));
 
         var msg = calcular(simbolo, n1, n2);
