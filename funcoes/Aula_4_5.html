@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Lógica de programação com Javascript</h1>
-  
+
     <button onclick="mostrarAreaAlert()">Mostar àrea num alert</button>
     <button onclick="mostrarAreaOutput()">Mostar àrea no output</button>
 
@@ -23,7 +23,7 @@
 
       var largura = parseFloat(prompt('Digite a Altura'));
       var altura = parseFloat(prompt('Digite a Altura'));
-      
+
       function calcularArea(l, a) {
         return l * a;
       }
@@ -32,12 +32,29 @@
         var area = calcularArea(largura, altura);
         alert("Area é " + area)
       }
-      
+
       function mostrarAreaOutput() {
         var area = calcularArea(largura, altura);
         document.querySelector('#output').innerHTML = 'Area é'  + area
       }
 
+      // function calcularArea(l, a) {
+      //   return l * a;
+      // }
+
+      // function mostrarAreaAlert() {
+      //   var largura = parseFloat(prompt("Digite a Altura"));
+      //   var altura = parseFloat(prompt("Digite a Altura"));
+      //   var area = calcularArea(largura, altura);
+      //   alert("Area é " + area);
+      // }
+
+      // function mostrarAreaOutput() {
+      //   var largura = parseFloat(prompt("Digite a Altura"));
+      //   var altura = parseFloat(prompt("Digite a Altura"));
+      //   var area = calcularArea(largura, altura);
+      //   document.querySelector("#output").innerHTML = "Area é" + area;
+      // }
     </script>
   </body>
 </html>
