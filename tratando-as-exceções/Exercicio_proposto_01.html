@@ -37,13 +37,24 @@
         var largura = parseFloat(prompt("Digite a Altura"));
         var altura = parseFloat(prompt("Digite a Altura"));
         var area = calcularArea(largura, altura);
-        alert("Area é " + area);
+       
+
+        try {
+           alert("Area é " + area);
+        } catch (error) {
+          alert(error)
+        }
       }
 
       function mostrarAreaOutput() {
         var largura = parseFloat(prompt("Digite a Altura"));
         var altura = parseFloat(prompt("Digite a Altura"));
-        var area = calcularArea(largura, altura);
+        
+        try {
+          var area = calcularArea(largura, altura);
+        } catch (error) {
+          alert(error)
+        }
         document.querySelector("#output").innerHTML = "Area é" + area;
       }
 
