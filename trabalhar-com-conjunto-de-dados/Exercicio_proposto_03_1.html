@@ -21,7 +21,10 @@
       produto1.valor = 2;
       produto1.quantidade = 20;
 
-      produto1.comprar = function(){
+      produto1.comprar = function(qtd){
+        if(!qtd) {
+          qtd = 1;
+        }
         console.log('comprou caneta');
         this.estoque --;
         console.log(this.estoque);
