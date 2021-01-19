@@ -125,6 +125,10 @@
 
 	function iniciarCalculo(simbolo) {
 
+		if (clicadoEmIgual) {
+			clicadoEmIgual = false;
+			n2 = '';
+		}
 		if (operacao === null || n2 === '') {
 			operacao = simbolo;
 		} else {
@@ -143,8 +147,12 @@
 		document.querySelector('#display').innerHTML = valor;
 	}
 
+	var clicadoEmIgual = false;
 	function finalizarCalculo() {
-
+		clicadoEmIgual = true;
+		var resulado = calcular();
+		n1 = resulado;
+		mostrarNoDisplay(n1);
 	}
 </script>
 
