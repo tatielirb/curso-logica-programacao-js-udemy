@@ -3,6 +3,14 @@ var n2 = "";
 var operation = null;
 
 function includeDigit(digito) {
+  if (n2 && operation && clikeInEqual) {
+    clikeInEqual == false;
+    clearDigit();
+    n1 = digito;
+    showInDisplay(n1);
+    return;
+  }
+
   if (operation !== null) {
     n2 = n2 + digito;
     showInDisplay(n2);
@@ -83,13 +91,17 @@ function clearDigit() {
   console.log("ta clicando", n1, operation, n2);
 }
 
-function getPercent() {
+function obterPorcento() {
   if (!n2) {
-    n2 = "";
-    showInDisplay(n1);
+    limpar();
+    mostrarNoDisplay(n1);
   } else {
-    var percent = (n1 * n2) / 100;
-    n2 = percent;
-    showInDisplay(n2);
+    if (operacao === "+" || operacao === "-") {
+      var porcento = (n1 * n2) / 100;
+    } else {
+      var porcento = n2 / 100;
+    }
+    n2 = porcento;
+    mostrarNoDisplay(n2);
   }
 }
