@@ -3,59 +3,14 @@
 
 <head>
 	<title>calculadora</title>
-
-	<style>
-		body {
-			font-family: sans-serif;
-		}
-
-		#calculator {
-			width: 200px;
-			background-image: linear-gradient(#b7b7b7, #9c9c9c);
-			padding: 20px;
-			border-radius: 5px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-			margin: 15px auto;
-
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-gap: 5px;
-			grid-template-rows: auto repeat(5, 40px);
-		}
-
-		button {
-			padding: 0.25em;
-		}
-
-		#display {
-			padding: 10px;
-			font-size: 1.4em;
-			text-align: right;
-			background-image: linear-gradient(#c5c5c5, #e0e0e0);
-			box-shadow: inset 3px 2px 0 white;
-			margin-bottom: 15px;
-
-			grid-column: 1 / -1;
-		}
-
-		.mais {
-			background-color: #adadad;
-			grid-row: 5 / 7;
-			grid-column: 4 / 5;
-		}
-
-		.zero {
-			background-color: #adadad;
-			grid-column: 1 / 3;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div id="calculator">
 		<div id="display">0</div>
 
-		<button onclick="clear()">AC</button>
+		<button onclick="clearDigit()">AC</button>
 		<button onclick="getPercent()">%</button>
 		<button onclick="starCalculation('*')">x</button>
 		<button onclick="starCalculation('/')">/</button>
@@ -77,96 +32,6 @@
 
 	<!--	<img src="https://static.webshopapp.com/shops/038765/files/063260238/geeek-bamboo-wooden-calculator-calculator.jpg" style="width: 250px">-->
 </body>
-<script>
-	var n1 = "0";
-	var n2 = "";
-	var operacao = null;
-
-	function includeDigit(digito) {
-		if (operacao !== null) {
-			n2 = n2 + digito;
-			mostrarNoDisplay(n2);
-		} else {
-			if (n1 === "0") {
-				n1 = digito;
-			} else {
-				n1 = n1 + digito;
-			}
-			mostrarNoDisplay(n1);
-		}
-	}
-
-	function calcular() {
-		var nCalculado = 0;
-		var _n1 = parseFloat(n1);
-		var _n2 = parseFloat(n2);
-		switch (operacao) {
-			case "+":
-				nCalculado = _n1 + _n2;
-				break;
-			case "-":
-				nCalculado = _n1 - _n2;
-				break;
-			case "/":
-				nCalculado = _n1 / _n2;
-				break;
-			case "*":
-				nCalculado = _n1 * _n2;
-				break;
-		}
-		return nCalculado;
-	}
-
-	function starCalculation(simbolo) {
-		if (clicadoEmIgual) {
-			clicadoEmIgual = false;
-			n2 = "";
-		}
-		if (operacao === null || n2 === "") {
-			operacao = simbolo;
-		} else {
-			var resultado = calcular();
-			n1 = resultado;
-			operacao = simbolo;
-			n2 = "";
-			mostrarNoDisplay(n1);
-		}
-
-		console.log(n1, operacao, n2);
-	}
-
-	function mostrarNoDisplay(valor) {
-		document.querySelector("#display").innerHTML = valor;
-	}
-
-	var clicadoEmIgual = false;
-	function finalizeCalculation() {
-		clicadoEmIgual = true;
-		var resulado = calcular();
-		n1 = resulado;
-		mostrarNoDisplay(n1);
-	}
-
-	function includePoint() {
-		if (operacao && n2 === "") {
-			n2 = "0.";
-		} else if (operacao && n2) {
-			n2 = n2 + ".";
-		} else {
-			n1 = n1 + ".";
-		}
-	}
-
-	function clear() {
-		n1 = '0';
-		operacao = null;
-		n2 = '';
-		mostrarNoDisplay(n1);
-	}
-
-	function getPercent() {
-
-	}
-</script>
+<script src="calculadora.js"></script>
 
 </html>
