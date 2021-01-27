@@ -16,7 +16,7 @@ function includeDigit(digito) {
   }
 }
 
-function calcular() {
+function calculate() {
   var nCalculated = 0;
   var _n1 = parseFloat(n1);
   var _n2 = parseFloat(n2);
@@ -45,7 +45,7 @@ function starCalculation(simbolo) {
   if (operation === null || n2 === "") {
     operation = simbolo;
   } else {
-    var result = calcular();
+    var result = calculate();
     n1 = result;
     operation = simbolo;
     n2 = "";
@@ -60,7 +60,7 @@ function showInDisplay(valor) {
 var clikeInEqual = false;
 function finalizeCalculation() {
   clikeInEqual = true;
-  var result = calcular();
+  var result = calculate();
   n1 = result;
   showInDisplay(n1);
 }
@@ -83,4 +83,13 @@ function clearDigit() {
   console.log("ta clicando", n1, operation, n2);
 }
 
-function getPercent() {}
+function getPercent() {
+  if (!n2) {
+    n2 = "";
+    showInDisplay(n1);
+  } else {
+    var percent = (n1 * n2) / 100;
+    n2 = percent;
+    showInDisplay(n2);
+  }
+}
